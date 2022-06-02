@@ -95,7 +95,7 @@ const defaults = {
 
 ## License
 
-MIT. Copyright (c) Jommy Barban &lt;jommy.barban@visionmedia.com&gt;
+MIT. Copyright (c) Jommy Barban &lt;fanguitocoder@gmail.com&gt;
 
 
 [videojs]: http://videojs.com/
