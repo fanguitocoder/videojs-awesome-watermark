@@ -1,7 +1,7 @@
-/*! @name videojs-awesome-watermark @version 0.0.6 @license MIT */
+/*! @name videojs-awesome-watermark @version 0.0.7 @license MIT */
 import videojs from 'video.js';
 
-var version = "0.0.6";
+var version = "0.0.7";
 
 var defaults = {
   bottom: null,
@@ -43,14 +43,14 @@ var setupWatermark = function setupWatermark(player, options) {
     var fontSizeUnit = options.fontSizeUnit == 'percent' ? '%' : 'px';
 
     if (fontSizeUnit == 'px') {
-      div.style.fontSize = options.fontSize + fontSizeUnit;
+      text.style.fontSize = options.fontSize + fontSizeUnit;
     } else {
       // otherwise, we will need to calculate the size based on the player's height
       // and watch for size changes to update it
       var updateWatermarkFontSize = function updateWatermarkFontSize() {
         var height = document.querySelector('.video-js').clientHeight;
         var trueSize = height / 100 * parseFloat(options.fontSize);
-        div.style.fontSize = trueSize + 'px';
+        text.style.fontSize = trueSize + 'px';
       };
 
       window.addEventListener('resize', updateWatermarkFontSize);
@@ -59,8 +59,8 @@ var setupWatermark = function setupWatermark(player, options) {
       setTimeout(updateWatermarkFontSize, 1000);
     }
 
-    div.style.fontFamily = options.fontFamily;
-    div.style.color = options.fontColor;
+    text.style.fontFamily = options.fontFamily;
+    text.style.color = options.fontColor;
   } else {
     img.src = options.image;
     img.style.width = options.imageWith;

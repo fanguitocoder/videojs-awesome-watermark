@@ -48,14 +48,14 @@ let intervalHandler = 0;
     let fontSizeUnit = options.fontSizeUnit == 'percent' ? '%' : 'px';
 
     if (fontSizeUnit == 'px') {
-      div.style.fontSize = options.fontSize + fontSizeUnit;
+      text.style.fontSize = options.fontSize + fontSizeUnit;
     } else {
       // otherwise, we will need to calculate the size based on the player's height
       // and watch for size changes to update it
       const updateWatermarkFontSize = () => {
         const height = document.querySelector('.video-js').clientHeight;
         const trueSize = (height / 100) * parseFloat(options.fontSize);
-        div.style.fontSize = trueSize + 'px';
+        text.style.fontSize = trueSize + 'px';
       };
 
       window.addEventListener('resize', updateWatermarkFontSize);
@@ -63,8 +63,8 @@ let intervalHandler = 0;
       // update once
       setTimeout(updateWatermarkFontSize, 1000);
     }
-    div.style.fontFamily = options.fontFamily;
-    div.style.color = options.fontColor;
+    text.style.fontFamily = options.fontFamily;
+    text.style.color = options.fontColor;
   } else {
     img.src = options.image;
     img.style.width = options.imageWith;
