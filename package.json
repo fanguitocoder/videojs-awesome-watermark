@@ -82,5 +82,16 @@
     "videojs-generate-rollup-config": "~6.2.0",
     "videojs-generator-verify": "~3.0.3",
     "videojs-standard": "^8.0.4"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fanguitocoder/videojs-awesome-watermark.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fanguitocoder/videojs-awesome-watermark/issues"
+  },
+  "homepage": "https://github.com/fanguitocoder/videojs-awesome-watermark#readme"
 }
