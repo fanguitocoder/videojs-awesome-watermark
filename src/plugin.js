@@ -9,6 +9,9 @@ const defaults = {
   fontSize: '30',
   fontSizeUnit: 'pixels',
   image: 'https://picsum.photos/200',
+  imageWith: '100px',
+  intermittent: false,
+  interval: 5,
   left: null,
   opacity: 0.4,
   position: null,
@@ -45,10 +48,8 @@ const defaults = {
     div.style.color = options.fontColor;
   } else {
     img.src = options.image;
+    img.style.width = options.imageWith;
   }
-
-  // set opacity
-  div.style.opacity = options.opacity;
 
   if (options.position) {
     div.classList.add(`vjs-watermark-${options.position}`);
@@ -92,7 +93,19 @@ const defaults = {
   } else {
     div.appendChild(contentItem);
   }
+
+  // set opacity
+  contentItem.style.opacity = options.opacity;
+
   videoEl.appendChild(div);
+
+  if (options.intermittent) {
+    div.style.animation = `animation: fade ${options.interval}ms infinite 100ms;`;
+    div.style.animationName = 'fade';
+    div.style.animationDuration = `${options.interval}s`;
+    div.style.animationDirection = 'alternate';
+    div.style.animationIterationCount = 'infinite';
+  }
 };
 
 // Cross-compatibility for Video.js 5 and 6.

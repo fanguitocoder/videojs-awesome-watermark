@@ -41,3 +41,33 @@
 .video-js.vjs-user-inactive.vjs-playing .vjs-watermark-fade {
   opacity: 0;
 }
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  50.01% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+} 
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  50.01% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
