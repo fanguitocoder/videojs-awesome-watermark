@@ -19,8 +19,10 @@
   <script src="dist/videojs-awesome-watermark.js"></script>
   <script>
     (function(window, videojs) {
-      var examplePlayer = window.examplePlayer = videojs('videojs-awesome-watermark-player');
-      var awesomeWatermark = window.awesomeWatermark = examplePlayer.awesomeWatermark();
+      var player = window.player = videojs('videojs-awesome-watermark-player');
+      var awesomeWatermark = window.awesomeWatermark = player.awesomeWatermark({
+        position: 'center'
+      });
     }(window, window.videojs));
   </script>
 </body>

@@ -2,7 +2,85 @@ import videojs from 'video.js';
 import {version as VERSION} from '../package.json';
 
 // Default options for the plugin.
-const defaults = {};
+const defaults = {
+  bottom: null,
+  fontFamily: 'Arial',
+  fontSize: '30',
+  fontSizeUnit: 'pixels',
+  left: null,
+  opacity: 0.8,
+  position: null,
+  positionUnit: 'px',
+  right: '20',
+  text: "Watermark",
+  top: '20',
+  url: null,
+};
+
+/**
+ * Sets up the div, img or text and optional a tags for the plugin.
+ *
+ * @function setupWatermark
+ * @param    {Player} player
+ * @param    {Object} [options={}]
+ */
+ const setupWatermark = (player, options) => {
+  // Add a div and img or text tag
+  const videoEl = player.el();
+  const div = document.createElement('div');
+
+  const text = document.createElement('span');
+
+  div.classList.add('vjs-watermark-content');
+
+  // set text font size
+  let fontSizeUnit = options.fontSizeUnit == 'percent' ? '%' : 'px';
+  div.style.fontSize = options.fontSize + fontSizeUnit;
+  div.style.fontFamily = options.fontFamily;
+  div.style.opacity = options.opacity;
+
+  if (options.position) {
+    div.classList.add(`vjs-watermark-${options.position}`);
+  } else {
+    let positionUnit = options.positionUnit == 'percent' ? '%' : 'px';
+
+    // set the position
+    if (options.left) {
+      div.style.left = options.left + positionUnit;
+    }
+    if (options.top) {
+      div.style.top = options.top + positionUnit;
+    }
+    if (options.right) {
+      div.style.right = options.right + positionUnit;
+    }
+    if (options.bottom) {
+      div.style.bottom = options.bottom + positionUnit;
+    }
+  }
+  text.innerText = options.text;
+
+  const contentItem = options.type === 'img' ? img : text;
+
+  // if a url is provided make the image link to that URL.
+  if (options.url) {
+    const a = document.createElement('a');
+
+    a.href = options.url;
+    // if the user clicks the link pause and open a new window
+    a.onclick = (e) => {
+      e.preventDefault();
+      player.pause();
+      window.open(options.url);
+    };
+
+    a.appendChild(contentItem);
+    div.appendChild(a);
+  } else {
+    div.appendChild(contentItem);
+  }
+  videoEl.appendChild(div);
+};
 
 // Cross-compatibility for Video.js 5 and 6.
 const registerPlugin = videojs.registerPlugin || videojs.plugin;
@@ -24,6 +102,15 @@ const registerPlugin = videojs.registerPlugin || videojs.plugin;
  */
 const onPlayerReady = (player, options) => {
   player.addClass('vjs-videojs-awesome-watermark');
+
+  // if there is no image set just exit
+  if (!options.text) {
+    return;
+  }
+
+  // initialize the watermark
+  setupWatermark(player, options);
+
 };
 
 /**
