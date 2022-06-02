@@ -35,6 +35,9 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
+.video-js .vjs-watermark-content a {
+  text-decoration: none;
+}
 .video-js.vjs-user-inactive.vjs-playing .vjs-watermark-fade {
   opacity: 0;
 }

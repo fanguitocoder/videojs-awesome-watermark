@@ -13,19 +13,20 @@
 
   var defaults = {
     bottom: null,
+    fontColor: 'white',
     fontFamily: 'Arial',
     fontSize: '30',
     fontSizeUnit: 'pixels',
     image: 'https://picsum.photos/200',
     left: null,
-    opacity: 0.8,
+    opacity: 0.4,
     position: null,
     positionUnit: 'px',
     right: '20',
     text: "Watermark",
     type: 'text',
     top: '20',
-    url: null
+    url: 'https://google.com'
   };
   /**
    * Sets up the div, img or text and optional a tags for the plugin.
@@ -47,6 +48,7 @@
       var fontSizeUnit = options.fontSizeUnit == 'percent' ? '%' : 'px';
       div.style.fontSize = options.fontSize + fontSizeUnit;
       div.style.fontFamily = options.fontFamily;
+      div.style.color = options.fontColor;
     } else {
       img.src = options.image;
     } // set opacity
@@ -81,7 +83,9 @@
 
     if (options.url) {
       var a = document.createElement('a');
-      a.href = options.url; // if the user clicks the link pause and open a new window
+      a.href = options.url;
+      a.style.color = options.fontColor;
+      a.style.textDecoration = 'none'; // if the user clicks the link pause and open a new window
 
       a.onclick = function (e) {
         e.preventDefault();

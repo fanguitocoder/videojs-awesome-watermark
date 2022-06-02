@@ -4,19 +4,20 @@ import {version as VERSION} from '../package.json';
 // Default options for the plugin.
 const defaults = {
   bottom: null,
+  fontColor: 'white',
   fontFamily: 'Arial',
   fontSize: '30',
   fontSizeUnit: 'pixels',
   image: 'https://picsum.photos/200',
   left: null,
-  opacity: 0.8,
+  opacity: 0.4,
   position: null,
   positionUnit: 'px',
   right: '20',
   text: "Watermark",
   type: 'text',
   top: '20',
-  url: null,
+  url: 'https://google.com',
 };
 
 /**
@@ -41,6 +42,7 @@ const defaults = {
     let fontSizeUnit = options.fontSizeUnit == 'percent' ? '%' : 'px';
     div.style.fontSize = options.fontSize + fontSizeUnit;
     div.style.fontFamily = options.fontFamily;
+    div.style.color = options.fontColor;
   } else {
     img.src = options.image;
   }
@@ -76,6 +78,8 @@ const defaults = {
     const a = document.createElement('a');
 
     a.href = options.url;
+    a.style.color = options.fontColor;
+    a.style.textDecoration = 'none';
     // if the user clicks the link pause and open a new window
     a.onclick = (e) => {
       e.preventDefault();
