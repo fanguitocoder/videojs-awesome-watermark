@@ -2,10 +2,6 @@
 
 A simple plugin to display a text/image watermark
 
-## Table of Contents
-
-<!-- START doctoc -->
-<!-- END doctoc -->
 ## Installation
 
 ```sh
