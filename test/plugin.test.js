@@ -38,7 +38,7 @@ QUnit.module('videojs-awesome-watermark', {
 });
 
 QUnit.test('registers itself with video.js', function(assert) {
-  assert.expect(2);
+  assert.expect(3);
 
   assert.strictEqual(
     typeof Player.prototype.awesomeWatermark,
@@ -54,5 +54,10 @@ QUnit.test('registers itself with video.js', function(assert) {
   assert.ok(
     this.player.hasClass('vjs-videojs-awesome-watermark'),
     'the plugin adds a class to the player'
+  );
+
+  assert.ok(
+    document.querySelector('.vjs-watermark-content') != null,
+    'the plugin adds the watermark element'
   );
 });
