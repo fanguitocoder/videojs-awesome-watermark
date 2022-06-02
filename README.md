@@ -68,7 +68,8 @@ const defaults = {
 
   // Positioning
   // when 'position' is set, the other positioning options (left, right, top and bottom) will be ignored
-  position: null,      // 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'center' 
+                       // 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'center', 'top-center'
+  position: null,      // 'bottom-center', 'offcenter-center', 'offcenter-left', 'offcenter-right', 
   positionUnit: 'px',  // the CSS unit for positioning
   // make sure you set a pair [left,right] / [top,bottom], (like the 'position' option), 
   // otherwise you may get undesired results

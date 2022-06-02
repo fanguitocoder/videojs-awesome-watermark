@@ -1,4 +1,4 @@
-/*! @name videojs-awesome-watermark @version 0.0.4 @license MIT */
+/*! @name videojs-awesome-watermark @version 0.0.5 @license MIT */
 'use strict';
 
 var videojs = require('video.js');
@@ -7,7 +7,7 @@ function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'defau
 
 var videojs__default = /*#__PURE__*/_interopDefaultLegacy(videojs);
 
-var version = "0.0.4";
+var version = "0.0.5";
 
 var defaults = {
   bottom: null,
@@ -27,7 +27,7 @@ var defaults = {
   text: "Watermark",
   type: 'text',
   top: '20',
-  url: 'https://google.com'
+  url: null
 };
 /**
  * Sets up the div, img or text and optional a tags for the plugin.

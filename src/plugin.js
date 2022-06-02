@@ -20,7 +20,7 @@ const defaults = {
   text: "Watermark",
   type: 'text',
   top: '20',
-  url: 'https://google.com',
+  url: null,
 };
 
 /**
