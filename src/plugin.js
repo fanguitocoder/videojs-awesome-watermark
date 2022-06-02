@@ -23,9 +23,6 @@ const defaults = {
   url: null,
 };
 
-// handlers
-let intervalHandler = 0;
-
 /**
  * Sets up the div, img or text and optional a tags for the plugin.
  *
@@ -63,8 +60,9 @@ let intervalHandler = 0;
       // update once
       setTimeout(updateWatermarkFontSize, 1000);
     }
-    text.style.fontFamily = options.fontFamily;
-    text.style.color = options.fontColor + ' !important';
+
+    text.setAttribute('style', 'fontFamily: ' + options.fontFamily + ' !important');
+    text.setAttribute('style', 'color: ' + options.fontColor + ' !important');
   } else {
     img.src = options.image;
     img.style.width = options.imageWith;
@@ -130,10 +128,6 @@ let intervalHandler = 0;
   }
 };
 
-// Cross-compatibility for Video.js 5 and 6.
-const registerPlugin = videojs.registerPlugin || videojs.plugin;
-// const dom = videojs.dom || videojs;
-
 /**
  * Function to invoke when the player is ready.
  *
@@ -179,6 +173,8 @@ const awesomeWatermark = function(options) {
   });
 };
 
+
+const registerPlugin = videojs.registerPlugin || videojs.plugin;
 // Register the plugin with video.js.
 registerPlugin('awesomeWatermark', awesomeWatermark);
 

@@ -1,4 +1,4 @@
-/*! @name videojs-awesome-watermark @version 0.0.0 @license MIT */
+/*! @name videojs-awesome-watermark @version 0.0.7 @license MIT */
 import videojs from 'video.js';
 
 var version = "0.0.7";
@@ -22,7 +22,7 @@ var defaults = {
   type: 'text',
   top: '20',
   url: null
-}; // handlers
+};
 /**
  * Sets up the div, img or text and optional a tags for the plugin.
  *
@@ -59,8 +59,8 @@ var setupWatermark = function setupWatermark(player, options) {
       setTimeout(updateWatermarkFontSize, 1000);
     }
 
-    text.style.fontFamily = options.fontFamily;
-    text.style.color = options.fontColor + ' !important';
+    text.setAttribute('style', 'fontFamily: ' + options.fontFamily + ' !important');
+    text.setAttribute('style', 'color: ' + options.fontColor + ' !important');
   } else {
     img.src = options.image;
     img.style.width = options.imageWith;
@@ -123,11 +123,7 @@ var setupWatermark = function setupWatermark(player, options) {
     div.style.animationDirection = 'alternate';
     div.style.animationIterationCount = 'infinite';
   }
-}; // Cross-compatibility for Video.js 5 and 6.
-
-
-var registerPlugin = videojs.registerPlugin || videojs.plugin; // const dom = videojs.dom || videojs;
-
+};
 /**
  * Function to invoke when the player is ready.
  *
@@ -142,6 +138,7 @@ var registerPlugin = videojs.registerPlugin || videojs.plugin; // const dom = vi
  * @param    {Object} [options={}]
  *           A plain object containing options for the plugin.
  */
+
 
 var onPlayerReady = function onPlayerReady(player, options) {
   player.addClass('vjs-videojs-awesome-watermark'); // if there is no image set just exit
@@ -173,8 +170,9 @@ var awesomeWatermark = function awesomeWatermark(options) {
   this.ready(function () {
     onPlayerReady(_this, videojs.mergeOptions(defaults, options));
   });
-}; // Register the plugin with video.js.
+};
 
+var registerPlugin = videojs.registerPlugin || videojs.plugin; // Register the plugin with video.js.
 
 registerPlugin('awesomeWatermark', awesomeWatermark); // Include the version number.
 
