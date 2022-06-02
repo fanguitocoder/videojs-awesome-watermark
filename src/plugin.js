@@ -23,6 +23,9 @@ const defaults = {
   url: null,
 };
 
+// handlers
+let intervalHandler = 0;
+
 /**
  * Sets up the div, img or text and optional a tags for the plugin.
  *
@@ -43,7 +46,23 @@ const defaults = {
   // set text font size
   if (options.type == 'text') {
     let fontSizeUnit = options.fontSizeUnit == 'percent' ? '%' : 'px';
-    div.style.fontSize = options.fontSize + fontSizeUnit;
+
+    if (fontSizeUnit == 'px') {
+      div.style.fontSize = options.fontSize + fontSizeUnit;
+    } else {
+      // otherwise, we will need to calculate the size based on the player's height
+      // and watch for size changes to update it
+      const updateWatermarkFontSize = () => {
+        const height = document.querySelector('.video-js').clientHeight;
+        const trueSize = (height / 100) * parseFloat(options.fontSize);
+        div.style.fontSize = trueSize + 'px';
+      };
+
+      window.addEventListener('resize', updateWatermarkFontSize);
+      player.on('resize', updateWatermarkFontSize);
+      // update once
+      setTimeout(updateWatermarkFontSize, 1000);
+    }
     div.style.fontFamily = options.fontFamily;
     div.style.color = options.fontColor;
   } else {
@@ -97,7 +116,10 @@ const defaults = {
   // set opacity
   contentItem.style.opacity = options.opacity;
 
-  videoEl.appendChild(div);
+  // add it to the player
+  setTimeout(() => {
+    videoEl.appendChild(div);
+  }, 1000);
 
   if (options.intermittent) {
     div.style.animation = `animation: fade ${options.interval}ms infinite 100ms;`;

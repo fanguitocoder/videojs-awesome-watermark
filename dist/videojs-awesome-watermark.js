@@ -1,4 +1,4 @@
-/*! @name videojs-awesome-watermark @version 0.0.5 @license MIT */
+/*! @name videojs-awesome-watermark @version 0.0.6 @license MIT */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('video.js')) :
   typeof define === 'function' && define.amd ? define(['video.js'], factory) :
@@ -9,7 +9,7 @@
 
   var videojs__default = /*#__PURE__*/_interopDefaultLegacy(videojs);
 
-  var version = "0.0.5";
+  var version = "0.0.6";
 
   var defaults = {
     bottom: null,
@@ -30,7 +30,7 @@
     type: 'text',
     top: '20',
     url: null
-  };
+  }; // handlers
   /**
    * Sets up the div, img or text and optional a tags for the plugin.
    *
@@ -49,7 +49,24 @@
 
     if (options.type == 'text') {
       var fontSizeUnit = options.fontSizeUnit == 'percent' ? '%' : 'px';
-      div.style.fontSize = options.fontSize + fontSizeUnit;
+
+      if (fontSizeUnit == 'px') {
+        div.style.fontSize = options.fontSize + fontSizeUnit;
+      } else {
+        // otherwise, we will need to calculate the size based on the player's height
+        // and watch for size changes to update it
+        var updateWatermarkFontSize = function updateWatermarkFontSize() {
+          var height = document.querySelector('.video-js').clientHeight;
+          var trueSize = height / 100 * parseFloat(options.fontSize);
+          div.style.fontSize = trueSize + 'px';
+        };
+
+        window.addEventListener('resize', updateWatermarkFontSize);
+        player.on('resize', updateWatermarkFontSize); // update once
+
+        setTimeout(updateWatermarkFontSize, 1000);
+      }
+
       div.style.fontFamily = options.fontFamily;
       div.style.color = options.fontColor;
     } else {
@@ -101,8 +118,11 @@
     } // set opacity
 
 
-    contentItem.style.opacity = options.opacity;
-    videoEl.appendChild(div);
+    contentItem.style.opacity = options.opacity; // add it to the player
+
+    setTimeout(function () {
+      videoEl.appendChild(div);
+    }, 1000);
 
     if (options.intermittent) {
       div.style.animation = "animation: fade " + options.interval + "ms infinite 100ms;";

@@ -14,20 +14,20 @@
   z-index: 9;
 }
 .video-js .vjs-watermark-top-right {
-  right: 30px;
+  right: 60px;
   top: 30px;
 }
 .video-js .vjs-watermark-top-left {
-  left: 30px;
+  left: 60px;
   top: 30px;
 }
 .video-js .vjs-watermark-bottom-right {
   bottom: 30px;
-  right: 30px;
+  right: 60px;
 }
 .video-js .vjs-watermark-bottom-left {
   bottom: 30px;
-  left: 0;
+  left: 60px;
 }
 .video-js .vjs-watermark-center {
   left: 50%;
@@ -55,11 +55,11 @@
 }
 .video-js .vjs-watermark-offcenter-left {
   bottom: 25%;
-  left: 30px;
+  left: 60px;
 }
 .video-js .vjs-watermark-offcenter-right {
   bottom: 25%;
-  right: 30px;
+  right: 60px;
 }
 .video-js .vjs-watermark-content a {
   text-decoration: none;
