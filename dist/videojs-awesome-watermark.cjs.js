@@ -1,4 +1,4 @@
-/*! @name videojs-awesome-watermark @version 0.0.7 @license MIT */
+/*! @name videojs-awesome-watermark @version 0.0.0 @license MIT */
 'use strict';
 
 var videojs = require('video.js');
@@ -66,7 +66,7 @@ var setupWatermark = function setupWatermark(player, options) {
     }
 
     text.style.fontFamily = options.fontFamily;
-    text.style.color = options.fontColor;
+    text.style.color = options.fontColor + ' !important';
   } else {
     img.src = options.image;
     img.style.width = options.imageWith;

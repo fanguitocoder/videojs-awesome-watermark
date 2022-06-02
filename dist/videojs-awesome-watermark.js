@@ -1,4 +1,4 @@
-/*! @name videojs-awesome-watermark @version 0.0.7 @license MIT */
+/*! @name videojs-awesome-watermark @version 0.0.0 @license MIT */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('video.js')) :
   typeof define === 'function' && define.amd ? define(['video.js'], factory) :
@@ -68,7 +68,7 @@
       }
 
       text.style.fontFamily = options.fontFamily;
-      text.style.color = options.fontColor;
+      text.style.color = options.fontColor + ' !important';
     } else {
       img.src = options.image;
       img.style.width = options.imageWith;

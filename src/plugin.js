@@ -64,7 +64,7 @@ let intervalHandler = 0;
       setTimeout(updateWatermarkFontSize, 1000);
     }
     text.style.fontFamily = options.fontFamily;
-    text.style.color = options.fontColor;
+    text.style.color = options.fontColor + ' !important';
   } else {
     img.src = options.image;
     img.style.width = options.imageWith;
