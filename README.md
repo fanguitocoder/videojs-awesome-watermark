@@ -59,6 +59,44 @@ require(['video.js', 'videojs-awesome-watermark'], function(videojs) {
 });
 ```
 
+## Options and defaults
+```js
+const defaults = {
+  // Watermark types are 'text' and 'img'
+  type: 'text',
+
+  // General options
+  intermittent: false,
+  interval: 5,
+  opacity: 0.4,
+
+  // Positioning
+  // when 'position' is set, the other positioning options (left, right, top and bottom) will be ignored
+  position: null,      // 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'center' 
+  positionUnit: 'px',  // the CSS unit for positioning
+  // make sure you set a pair [left,right] / [top,bottom], (like the 'position' option), 
+  // otherwise you may get undesired results
+  top: '20',
+  bottom: null,
+  left: null,
+  right: '20',
+
+  // Text watermark properties
+  fontColor: 'white',
+  fontFamily: 'Arial',
+  fontSize: '30',
+  fontSizeUnit: 'pixels',
+  text: "Watermark",
+
+  // Image watermark properties
+  image: 'https://picsum.photos/200',
+  imageWith: '100px',
+  
+  // Link watermark to external page
+  url: 'https://google.com',
+};
+```
+
 ## License
 
 MIT. Copyright (c) Jommy Barban &lt;jommy.barban@visionmedia.com&gt;
