@@ -1,7 +1,7 @@
-/*! @name videojs-awesome-watermark @version 0.0.1 @license MIT */
+/*! @name videojs-awesome-watermark @version 0.0.0 @license MIT */
 import videojs from 'video.js';
 
-var version = "0.0.1";
+var version = "0.0.2";
 
 var defaults = {
   bottom: null,

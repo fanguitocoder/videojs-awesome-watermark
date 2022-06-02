@@ -1,4 +1,4 @@
-/*! @name videojs-awesome-watermark @version 0.0.1 @license MIT */
+/*! @name videojs-awesome-watermark @version 0.0.0 @license MIT */
 'use strict';
 
 var videojs = require('video.js');
@@ -7,7 +7,7 @@ function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'defau
 
 var videojs__default = /*#__PURE__*/_interopDefaultLegacy(videojs);
 
-var version = "0.0.1";
+var version = "0.0.2";
 
 var defaults = {
   bottom: null,
