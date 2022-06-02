@@ -8,12 +8,14 @@ var defaults = {
   fontFamily: 'Arial',
   fontSize: '30',
   fontSizeUnit: 'pixels',
+  image: 'https://picsum.photos/200',
   left: null,
   opacity: 0.8,
   position: null,
   positionUnit: 'px',
   right: '20',
   text: "Watermark",
+  type: 'text',
   top: '20',
   url: null
 };
@@ -30,11 +32,18 @@ var setupWatermark = function setupWatermark(player, options) {
   var videoEl = player.el();
   var div = document.createElement('div');
   var text = document.createElement('span');
+  var img = document.createElement('img');
   div.classList.add('vjs-watermark-content'); // set text font size
 
-  var fontSizeUnit = options.fontSizeUnit == 'percent' ? '%' : 'px';
-  div.style.fontSize = options.fontSize + fontSizeUnit;
-  div.style.fontFamily = options.fontFamily;
+  if (options.type == 'text') {
+    var fontSizeUnit = options.fontSizeUnit == 'percent' ? '%' : 'px';
+    div.style.fontSize = options.fontSize + fontSizeUnit;
+    div.style.fontFamily = options.fontFamily;
+  } else {
+    img.src = options.image;
+  } // set opacity
+
+
   div.style.opacity = options.opacity;
 
   if (options.position) {
