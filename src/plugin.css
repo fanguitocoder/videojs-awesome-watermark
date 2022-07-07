@@ -68,32 +68,14 @@
   opacity: 0;
 }
 
-@-webkit-keyframes fade {
-  0% {
-    opacity: 1;
-  }
+@-webkit-keyframes blinker {
   50% {
-    opacity: 1;
-  }
-  50.01% {
-    opacity: 0;
-  }
-  100% {
     opacity: 0;
   }
 } 
 
-@keyframes fade {
-  0% {
-    opacity: 1;
-  }
+@keyframes blinker {
   50% {
-    opacity: 1;
-  }
-  50.01% {
-    opacity: 0;
-  }
-  100% {
     opacity: 0;
   }
 }

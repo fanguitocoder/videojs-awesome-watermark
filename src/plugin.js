@@ -24,6 +24,8 @@ const defaults = {
   visibleTime: 5,
 };
 
+let playerClosing = false;
+
 /**
  * Sets up the div, img or text and optional a tags for the plugin.
  *
@@ -121,11 +123,26 @@ const defaults = {
   }, 1000);
 
   if (options.intermittent) {
-    div.style.animation = `animation: fade ${options.visibleTime}ms infinite 100ms;`;
-    div.style.animationName = 'fade';
-    div.style.animationDuration = `${options.visibleTime}s`;
-    div.style.animationDirection = 'alternate';
-    div.style.animationIterationCount = 'infinite';
+    // temporary javascript solution
+
+    const fadeIn = () => {
+      if (playerClosing) return;
+      div.style.display = 'block';
+      setTimeout(fadeOut, parseInt(options.visibleTime) * 1000);
+    };
+
+    const fadeOut = () => {
+      if (playerClosing) return;
+      div.style.display = 'none';
+      setTimeout(fadeIn, parseInt(options.hiddenTime) * 1000);
+    };
+
+    fadeIn();
+
+    // div.style.animation = `animation: blinker ${options.visibleTime}ms step-start infinite 100ms;`;
+    // div.style.animationName = 'blinker';
+    // div.style.animationDuration = `${options.visibleTime}s`;
+    // div.style.animationIterationCount = 'infinite';
   }
 };
 
