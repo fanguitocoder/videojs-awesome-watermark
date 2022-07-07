@@ -16,6 +16,7 @@ const defaults = {
   opacity: 0.4,
   position: null,
   positionUnit: 'px',
+  randomPositionSwitchingTime: 3,
   right: '20',
   text: "Watermark",
   type: 'text',
@@ -71,7 +72,9 @@ let playerClosing = false;
     img.style.width = options.imageWith;
   }
 
-  if (options.position) {
+  if ('random' == options.position) {
+
+  } if (options.position) {
     div.classList.add(`vjs-watermark-${options.position}`);
   } else {
     let positionUnit = options.positionUnit == 'percent' ? '%' : 'px';

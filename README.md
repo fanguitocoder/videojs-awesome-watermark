@@ -69,9 +69,11 @@ const defaults = {
 
   // Positioning
   // when 'position' is set, the other positioning options (left, right, top and bottom) will be ignored
-                       // 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'center', 'top-center'
-  position: null,      // 'bottom-center', 'offcenter-center', 'offcenter-left', 'offcenter-right', 
+  // 'random', 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'center', 'top-center'
+  // 'bottom-center', 'offcenter-center', 'offcenter-left', 'offcenter-right', 
+  position: null,
   positionUnit: 'px',  // the CSS unit for positioning
+  randomPositionSwitchingTime: 3, // random position switching time
   // make sure you set a pair [left,right] / [top,bottom], (like the 'position' option), 
   // otherwise you may get undesired results
   top: '20',

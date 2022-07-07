@@ -1,7 +1,7 @@
-/*! @name videojs-awesome-watermark @version 0.0.10 @license MIT */
+/*! @name videojs-awesome-watermark @version 0.0.11 @license MIT */
 import videojs from 'video.js';
 
-var version = "0.0.10";
+var version = "0.0.11";
 
 var defaults = {
   bottom: null,
@@ -17,6 +17,7 @@ var defaults = {
   opacity: 0.4,
   position: null,
   positionUnit: 'px',
+  randomPositionSwitchingTime: 3,
   right: '20',
   text: "Watermark",
   type: 'text',
@@ -66,6 +67,8 @@ var setupWatermark = function setupWatermark(player, options) {
     img.src = options.image;
     img.style.width = options.imageWith;
   }
+
+  if ('random' == options.position) ;
 
   if (options.position) {
     div.classList.add("vjs-watermark-" + options.position);
