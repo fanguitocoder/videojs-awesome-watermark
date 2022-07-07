@@ -1,6 +1,6 @@
 {
   "name": "videojs-awesome-watermark",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "A simple plugin to display a text/image watermark",
   "main": "dist/videojs-awesome-watermark.cjs.js",
   "module": "dist/videojs-awesome-watermark.es.js",

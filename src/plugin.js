@@ -73,7 +73,10 @@ let playerClosing = false;
   }
 
   if ('random' == options.position) {
-
+    setInterval(function() {
+      div.style.left = Math.floor((Math.random() * 95)) + "%";
+      div.style.top = Math.floor((Math.random() * 95)) + "%";
+    }, parseInt(options.randomPositionSwitchingTime) * 1000);
   } if (options.position) {
     div.classList.add(`vjs-watermark-${options.position}`);
   } else {

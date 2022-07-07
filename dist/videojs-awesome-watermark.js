@@ -1,4 +1,4 @@
-/*! @name videojs-awesome-watermark @version 0.0.11 @license MIT */
+/*! @name videojs-awesome-watermark @version 0.0.12 @license MIT */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('video.js')) :
   typeof define === 'function' && define.amd ? define(['video.js'], factory) :
@@ -9,7 +9,7 @@
 
   var videojs__default = /*#__PURE__*/_interopDefaultLegacy(videojs);
 
-  var version = "0.0.11";
+  var version = "0.0.12";
 
   var defaults = {
     bottom: null,
@@ -76,7 +76,12 @@
       img.style.width = options.imageWith;
     }
 
-    if ('random' == options.position) ;
+    if ('random' == options.position) {
+      setInterval(function () {
+        div.style.left = Math.floor(Math.random() * 95) + "%";
+        div.style.top = Math.floor(Math.random() * 95) + "%";
+      }, parseInt(options.randomPositionSwitchingTime) * 1000);
+    }
 
     if (options.position) {
       div.classList.add("vjs-watermark-" + options.position);

@@ -1,7 +1,7 @@
-/*! @name videojs-awesome-watermark @version 0.0.11 @license MIT */
+/*! @name videojs-awesome-watermark @version 0.0.12 @license MIT */
 import videojs from 'video.js';
 
-var version = "0.0.11";
+var version = "0.0.12";
 
 var defaults = {
   bottom: null,
@@ -68,7 +68,12 @@ var setupWatermark = function setupWatermark(player, options) {
     img.style.width = options.imageWith;
   }
 
-  if ('random' == options.position) ;
+  if ('random' == options.position) {
+    setInterval(function () {
+      div.style.left = Math.floor(Math.random() * 95) + "%";
+      div.style.top = Math.floor(Math.random() * 95) + "%";
+    }, parseInt(options.randomPositionSwitchingTime) * 1000);
+  }
 
   if (options.position) {
     div.classList.add("vjs-watermark-" + options.position);
