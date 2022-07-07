@@ -1,4 +1,4 @@
-/*! @name videojs-awesome-watermark @version 0.0.8 @license MIT */
+/*! @name videojs-awesome-watermark @version 0.0.9 @license MIT */
 'use strict';
 
 var videojs = require('video.js');
