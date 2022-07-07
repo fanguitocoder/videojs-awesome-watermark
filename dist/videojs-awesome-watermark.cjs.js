@@ -18,7 +18,7 @@ var defaults = {
   image: 'https://picsum.photos/200',
   imageWith: '100px',
   intermittent: false,
-  interval: 5,
+  hiddenTime: 5,
   left: null,
   opacity: 0.4,
   position: null,
@@ -27,7 +27,8 @@ var defaults = {
   text: "Watermark",
   type: 'text',
   top: '20',
-  url: null
+  url: null,
+  visibleTime: 5
 };
 /**
  * Sets up the div, img or text and optional a tags for the plugin.
@@ -123,9 +124,9 @@ var setupWatermark = function setupWatermark(player, options) {
   }, 1000);
 
   if (options.intermittent) {
-    div.style.animation = "animation: fade " + options.interval + "ms infinite 100ms;";
+    div.style.animation = "animation: fade " + options.visibleTime + "ms infinite 100ms;";
     div.style.animationName = 'fade';
-    div.style.animationDuration = options.interval + "s";
+    div.style.animationDuration = options.visibleTime + "s";
     div.style.animationDirection = 'alternate';
     div.style.animationIterationCount = 'infinite';
   }
