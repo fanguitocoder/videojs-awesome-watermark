@@ -1,4 +1,4 @@
-/*! @name videojs-awesome-watermark @version 0.0.7 @license MIT */
+/*! @name videojs-awesome-watermark @version 0.0.8 @license MIT */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('video.js')) :
   typeof define === 'function' && define.amd ? define(['video.js'], factory) :
@@ -9,7 +9,7 @@
 
   var videojs__default = /*#__PURE__*/_interopDefaultLegacy(videojs);
 
-  var version = "0.0.7";
+  var version = "0.0.8";
 
   var defaults = {
     bottom: null,
