@@ -63,7 +63,8 @@ const defaults = {
 
   // General options
   intermittent: false,
-  interval: 5,
+  hiddenTime: 5,
+  visibleTime: 5,
   opacity: 0.4,
 
   // Positioning
