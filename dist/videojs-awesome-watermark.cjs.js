@@ -7,7 +7,7 @@ function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'defau
 
 var videojs__default = /*#__PURE__*/_interopDefaultLegacy(videojs);
 
-var version = "0.0.8";
+var version = "0.0.9";
 
 var defaults = {
   bottom: null,

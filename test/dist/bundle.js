@@ -38,7 +38,7 @@
 
 	var document_1 = doccy;
 
-	var version = "0.0.8";
+	var version = "0.0.9";
 
 	var defaults = {
 	  bottom: null,
